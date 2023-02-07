@@ -4,6 +4,7 @@ using LoginForm.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoginForm.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230205162444_Initialone")]
+    partial class Initialone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,32 +24,6 @@ namespace LoginForm.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("LoginForm.Models.Likes", b =>
-                {
-                    b.Property<string>("CompositeKey")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("LikedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PostId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CompositeKey");
-
-                    b.ToTable("Lik");
-
-                    b.HasData(
-                        new
-                        {
-                            CompositeKey = "Post1Root",
-                            LikedBy = "Root",
-                            PostId = "Post1"
-                        });
-                });
 
             modelBuilder.Entity("LoginForm.Models.Person", b =>
                 {
@@ -128,7 +105,7 @@ namespace LoginForm.Migrations
                         {
                             PostId = "Post1",
                             Likes = 5,
-                            PostDate = new DateTime(2023, 2, 6, 4, 46, 41, 89, DateTimeKind.Local).AddTicks(1687),
+                            PostDate = new DateTime(2023, 2, 5, 20, 24, 44, 595, DateTimeKind.Local).AddTicks(2256),
                             Text = "Example post 1",
                             UserEmail = "user1@example.com"
                         },
@@ -136,7 +113,7 @@ namespace LoginForm.Migrations
                         {
                             PostId = "Post2",
                             Likes = 3,
-                            PostDate = new DateTime(2023, 2, 6, 4, 46, 41, 89, DateTimeKind.Local).AddTicks(1698),
+                            PostDate = new DateTime(2023, 2, 5, 20, 24, 44, 595, DateTimeKind.Local).AddTicks(2268),
                             Text = "Example post 2",
                             UserEmail = "user2@example.com"
                         },
@@ -144,7 +121,7 @@ namespace LoginForm.Migrations
                         {
                             PostId = "Post3",
                             Likes = 10,
-                            PostDate = new DateTime(2023, 2, 6, 4, 46, 41, 89, DateTimeKind.Local).AddTicks(1700),
+                            PostDate = new DateTime(2023, 2, 5, 20, 24, 44, 595, DateTimeKind.Local).AddTicks(2270),
                             Text = "Example post 3",
                             UserEmail = "user3@example.com"
                         });
